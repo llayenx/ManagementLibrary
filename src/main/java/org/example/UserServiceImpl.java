@@ -3,10 +3,10 @@ package org.example;
 import java.util.*;
 
 public class UserServiceImpl implements IUserService {
-     List<User> users = new ArrayList<>();
-     Set<String> names = new HashSet<>();
+    List<User> users = new ArrayList<>();
+    Set<String> names = new HashSet<>();
     Set<String> emails = new HashSet<>();
-     Map<Integer, User> userById = new HashMap<>();
+    Map<Integer, User> userById = new HashMap<>();
 
     @Override
     public void addUser(User user) {
@@ -16,8 +16,7 @@ public class UserServiceImpl implements IUserService {
             System.out.println("Cet Id existe deja: " + user.getId());
         } else if (emails.contains(user.getEmail())) {
             System.out.println("Cet email existe deja:" + user.getEmail());
-        }
-        else{
+        } else {
             users.add(user);
             names.add(user.getName());
             emails.add(user.getEmail());
@@ -26,28 +25,26 @@ public class UserServiceImpl implements IUserService {
 
         }
     }
+
     @Override
     public int countUsers() {
         int totalUsers = 0;
 
         for (int i = 0; i < users.size(); i++) {
-             totalUsers++;
+            totalUsers++;
 
         }
-        System.out.println("Le nombre total de utilisateurs est: " +totalUsers);
-         return totalUsers;
+        System.out.println("Le nombre total de utilisateurs est: " + totalUsers);
+        return totalUsers;
     }
 
-    @Override
-    public User getUserById(int id) {
-        return userById .get(id);
-    }
 
     @Override
     public String displayUsers() {
-        if(userById.isEmpty()){
+        if (userById.isEmpty()) {
             System.out.println("Aucun utilisateur");
-        } for (User user: users){
+        }
+        for (User user : users) {
             System.out.println(user.getId() + " " + user.getName());
 
         }
@@ -57,17 +54,13 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public String findUserByEmail(String email) {
-      for(User user : users) {
-          if (user.getEmail().equalsIgnoreCase(email)){
-              System.out.println("Cet utilisateur avec cet email est:");
-              return user.getName() ;
-          }
-      }
+        for (User user : users) {
+            if (user.getEmail().equalsIgnoreCase(email)) {
+                System.out.println("Cet utilisateur avec cet email est:");
+                return user.getName();
+            }
+        }
         return "Null or no User";
     }
 
-    @Override
-    public String getActiveUsers() {
-        return "";
-    }
 }
