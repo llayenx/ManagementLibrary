@@ -28,7 +28,6 @@ public class Main {
         System.out.println("La liste des utilisateurs est la suivante");
         String display1 =userService.displayUsers();
 
-        System.out.println(UserStatus.ACTIVE.getStatus());
-
+       
     }
 }

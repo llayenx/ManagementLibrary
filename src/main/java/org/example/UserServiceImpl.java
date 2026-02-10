@@ -38,6 +38,19 @@ public class UserServiceImpl implements IUserService {
         return totalUsers;
     }
 
+    @Override
+    public List<User> getActiveUsers() {
+        List<User> listaDeUsersActive = new ArrayList<>();
+        // verificar chaque user in List users agregados
+        for (int i = 0; i < users.size(); i++){
+            //Get users que estan actives
+            if(users.get(i).isActive()){
+                listaDeUsersActive.add(users.get(i));
+            }
+        }
+        return listaDeUsersActive;
+    }
+
 
     @Override
     public String displayUsers() {
@@ -45,7 +58,7 @@ public class UserServiceImpl implements IUserService {
             System.out.println("Aucun utilisateur");
         }
         for (User user : users) {
-            System.out.println(user.getId() + " " + user.getName());
+            System.out.println(user.getId() + " " + user.getName() + ": ESTADO: " + user.isActive());
 
         }
 
@@ -53,14 +66,14 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public String findUserByEmail(String email) {
+    public User findUserByEmail(String email) {
         for (User user : users) {
             if (user.getEmail().equalsIgnoreCase(email)) {
-                System.out.println("Cet utilisateur avec cet email est:");
-                return user.getName();
+                System.out.println("Cet utilisateur avec cet email est: " + user.getName());
+                return user;
             }
         }
-        return "Null or no User";
+        return null;
     }
 
 }

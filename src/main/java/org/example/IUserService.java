@@ -1,15 +1,16 @@
 package org.example;
 
+import java.util.List;
+
 public interface IUserService {
 
         public  void addUser(User user);
         public String displayUsers();
 
-        public  String findUserByEmail(String email);
+        public User findUserByEmail(String email);
         public int countUsers();
 
-        //public  String getActiveUsers();
-       // User getUserById(int id);
+        public List<User> getActiveUsers();
     }
 
 

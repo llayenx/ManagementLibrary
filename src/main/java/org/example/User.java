@@ -4,7 +4,7 @@ public class User {
    private int id;
    private String name;
    private String email;
-   private  boolean active;
+   private boolean active;
 
     public User(boolean active, String email, int id, String name) {
         this.active = active;
@@ -14,11 +14,10 @@ public class User {
     }
 
     public boolean isActive() {
-
         return active;
     }
 
-    public void setActive(boolean active) {
+    public void setActivado(boolean active) {
         this.active = active;
     }
 
