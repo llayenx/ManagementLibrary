@@ -55,6 +55,9 @@ public class UserServiceTest {
 
       assertEquals(2, userServiceTest.countUsers());
       assertNotEquals(3, userServiceTest.countUsers());
+
+
+       userServiceTest.addUser(new User(true, "joe@gmail.com", 1, "joe"));
     }
 
 
